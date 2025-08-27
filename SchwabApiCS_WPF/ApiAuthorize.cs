@@ -32,6 +32,27 @@ namespace SchwabApiCS_WPF
             win.ShowDialog(); // wait until window closes
         }
 
+        public static void OpenSTA(string tokenDataFileName)
+        {
+            StaThreadWrapper(() =>
+            {
+                var mainWindow = new ApiAuthorizeWindow(tokenDataFileName);
+                mainWindow.Show();
+            });
+        }
+
+
+        private static void StaThreadWrapper(Action action)
+        {
+            var t = new Thread(o =>
+            {
+                action();
+                System.Windows.Threading.Dispatcher.Run();
+            });
+            t.SetApartmentState(ApartmentState.STA);
+            t.Start();
+        }
+
         private class ApiAuthorizeWindow : Window
         {
             private SchwabTokens schwabTokens;

@@ -2,7 +2,7 @@
   "profiles": {
     "SchwabApiAuthorize": {
       "commandName": "Project",
-      "commandLineArgs": "D:\\Users\\Gary\\Documents\\VSProjects\\TS\\Trading\\SchwabApiTest\\SchwabTokens.json"
+      "commandLineArgs": "M:\\Users\\Gary\\Documents\\VSProjects\\TS\\Trading\\SchwabApiTest\\SchwabTokens.json"
     }
   }
 }

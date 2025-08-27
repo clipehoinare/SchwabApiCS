@@ -52,6 +52,12 @@ namespace SchwabApiCS
                     this.stopPrice = SchwabApi.PriceAdjust(price);
                     break;
 
+                case OrderType.LIMIT:
+                    if (price == null)
+                        throw new Exception("Price is required for limit orders");
+                    this.price = SchwabApi.PriceAdjust(price);
+                    break;
+
                 case OrderType.STOP_LIMIT:
                     if (price == null)
                         throw new Exception("Price is required for STOP_LIMIT orders");
